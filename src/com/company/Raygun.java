@@ -1,15 +1,15 @@
 /*
-* Classname: Raygun.java
-*
-* Version information: 1.0
-*
-* Date: 21/01/2021
-*
-* Description: The class implements a ray gun for a game
-*
-* Author: Dr. Shane Wilson
-*
-*/
+ * Classname: Raygun.java
+ *
+ * Version information: 1.0
+ *
+ * Date: 21/01/2021
+ *
+ * Description: The class implements a ray gun for a game
+ *
+ * Author: Dr. Shane Wilson
+ *
+ */
 
 package com.company;
 
@@ -20,32 +20,65 @@ public class Raygun {
 
     //Class constructors
     public Raygun(int mChrg, int cChrg) {
-        //TODO: Construct the Raygun object and initialise the attributes
+        this.mChrg = mChrg;
+        this.cChrg = cChrg;
     }
 
-    // Methods
-    //TODO: Implement appropriate getters and setters for the class
-
+    /* only fire if raygun has a charge
+    if alien is dodging, call Alien.miss()
+    if alien is not dodging, call Alien.hit()
+    reduce charge by 1 if raygun has fired */
     public void fireAt(Alien a) {
-        //TODO: Implement the method
-        /*The gun should only fire if it is charged. Firing the gun will reduce the charge by 1. If the bug isDodging
-        * bug.miss() should be called, otherwise bug.hit */
-
+        if (isCharged()) {
+            if (a.isDodging()) {
+                a.miss();
+            } else {
+                a.hit();
+            }
+            
+             this.cChrg--;
+        }else{
+            this.cChrg = 0;
+        }
     }
 
+    /*increase charge by 1
+    do not exceed max charge*/
     public void recharge() {
-        //TODO: Implement the method
-        /*Increases the current charge by 1*/
+        this.cChrg = (getcChrg() < getmChrg()) ? this.cChrg+1 : this.mChrg;
     }
 
+    // return true if charge > 0
     public boolean isCharged() {
-        //TODO: Implement the method
-        /*Returns true if the gun has a charge*/
-
+        if(getcChrg() > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
+    // return true if current charge = max charge
     public boolean isFullyCharged() {
-        //TODO: Implement the method
-        /*Returns true if the gun is fully charged*/
+        if(cChrg == mChrg){
+            return true;
+        }else{
+            return false;
+        }
     }
+
+    // return max charge
+    public int getmChrg() {
+        return mChrg;
+    }
+
+    //set mChrg
+    public void setmChrg(int mChrg) {
+        this.mChrg = mChrg;
+    }
+
+    // return current charge
+    public int getcChrg() {
+        return cChrg;
+    }
+
 }
