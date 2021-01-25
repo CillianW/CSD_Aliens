@@ -12,6 +12,8 @@
  *
  */
 
+//Cillian's Alien Class
+
 package com.company;
 
 public class Alien {
@@ -42,11 +44,6 @@ public class Alien {
     public boolean isDodging() {
         return dodging;
     }
-
-//    //if alien is not dead, alien is dodging
-//    public void setDodging(boolean dodging) {
-//        this.dodging = dodging;
-//    }
 
     //check alien health
     public int getAlienHealth() {

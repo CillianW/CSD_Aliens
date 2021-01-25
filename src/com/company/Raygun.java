@@ -11,6 +11,8 @@
  *
  */
 
+//Cillian's Raygun Class
+
 package com.company;
 
 public class Raygun {
@@ -29,7 +31,7 @@ public class Raygun {
     if alien is not dodging, call Alien.hit()
     reduce charge by 1 if raygun has fired */
     public void fireAt(Alien a) {
-        if (isCharged()) {
+      if (isCharged()) {
             if (a.isDodging()) {
                 a.miss();
             } else {
