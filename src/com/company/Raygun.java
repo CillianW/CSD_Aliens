@@ -17,6 +17,8 @@ public class Raygun {
     //Data members
     private int mChrg; //The maximum charge the Raygun can hold
     private int cChrg; //The current level of charge the Raygun has
+    private boolean isFullyCharged = false;
+    private boolean isCharged = false;
 
     //Class constructors
     public Raygun(int mChrg, int cChrg) {
@@ -41,11 +43,12 @@ public class Raygun {
     public boolean isCharged() {
         //TODO: Implement the method
         /*Returns true if the gun has a charge*/
-
+        return isCharged;
     }
 
     public boolean isFullyCharged() {
         //TODO: Implement the method
         /*Returns true if the gun is fully charged*/
+        return isFullyCharged;
     }
 }
