@@ -74,6 +74,7 @@ public class Alien {
 
     public void miss() {
         this.dodging = false;
+        //just a comment
     }
 
 }
