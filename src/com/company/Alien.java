@@ -1,120 +1,80 @@
+/*
+ * Classname: Alien.java
+ *
+ * Version information: 1.0
+ *
+ * Date: 21/01/2021
+ *
+ * Description: The class implements an Alien for a game. The health of the alien object determines if the alien is
+ * alive and or dodging. If the health attribute is 0 then the alien attribute 'dead' MUST be true. The alien cannot be
+ * dodging if they are dead. Likewise, the alien cannot be dead if they health value is >0.
+ * Author: Dr. Shane Wilson
+ *
+ */
+
+//Cillian's Alien Class
+
 package com.company;
 
-/**
- * Description: The class implements an Alien for a game.
- * The health of the alien object determines if the alien is alive and or dodging.
- * If the health attribute is 0 then the alien attribute 'dead' MUST be true.
- * The alien cannot be dodging if they are dead.
- * Likewise, the alien cannot be dead if they health value is >0.
- * Author: Dr. Shane Wilson
- * Date: 21/01/2021
- * Version information: 1.0
- */
 public class Alien {
-
+    //Data members
     private boolean dead;
     private boolean dodging;
     private int alienHealth;
 
-    /**
-     * Construct the Alien object and initialise the data members appropriately.
-     * @param dodging
-     * @param alienHealth
-     */
+    //Class constructors
     public Alien(boolean dodging, int alienHealth) {
         this.dodging = dodging;
         this.alienHealth = alienHealth;
+        dead = (alienHealth > 0) ? false:true;
     }
 
-    /**
-     *
-     * @param dead
-     */
+    // Methods
+    //check if alien is dead
+    public boolean isDead() {
+        return dead;
+    }
 
+    //if alienHealth reaches, alien is dead
     public void setDead(boolean dead) {
         this.dead = dead;
     }
 
-    /**
-     *
-     * @param dodging
-     */
-    public void setDodging(boolean dodging) {
-        this.dodging = dodging;
-    }
-
-    /**
-     *
-     * @param alienHealth
-     */
-    public void setAlienHealth(int alienHealth) {
-        this.alienHealth = alienHealth;
-    }
-
-    /**
-     *
-     * @return true If the health attribute is 0.
-     */
-    public boolean isDead() {
-        if (alienHealth ==0) {
-            dead = true;
-        }
-        if (alienHealth > 0) {
-            dead = false;
-        }
-        return dead;
-    }
-
-    /**
-     *
-     * @return false if alien is dead
-     */
+    //check if alien is dodging
     public boolean isDodging() {
-        if(isDead() == true){
-            dodging = false;
-        }
-        else {
-            dodging = true;
-        }
         return dodging;
     }
 
-    /**
-     *
-     * @return int alienHealth
-     */
+    //check alien health
     public int getAlienHealth() {
         return alienHealth;
     }
 
-    /**
-     * Set dodging to true if the alien is alive
-     */
+    //set alien health
+    public void setAlienHealth(int alienHealth) {
+        this.alienHealth = alienHealth;
+
+        if(alienHealth < 1){
+            this.dead = true;
+        }
+    }
+
+    //if alien is dead, alien is not dodging. otherwise, alien is dodging
     public void dodge() {
-        if(isDead() == false){
-            dodging = true;
-        }
+        dodging = (dead) ? false:true;
     }
 
-    /**
-     * Reduces the alien health by 1.
-     * Minimum Alien health should 0
-     */
     public void hit() {
-        if (alienHealth == 0){
-            System.out.println("Minimum Alien health should 0");
-        }
-        else {
-            alienHealth--;
-        }
+        alienHealth = (alienHealth > 0) ? alienHealth-1 : 0;
 
+        if(alienHealth == 0){
+            setDead(true);
+        }
     }
 
-    /**
-     * Set dodging to false
-     */
     public void miss() {
-        dodging = false;
+        this.dodging = false;
+        //just a comment
     }
 
 }
