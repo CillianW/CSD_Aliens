@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-//Cillians Alien Test
+//Cillian's Alien Test
 
 public class AlienTest {
 
@@ -49,11 +49,11 @@ public class AlienTest {
         //Arrange
         Alien testAlien = new Alien(true, 10);
 
-        boolean expectedResult = true;
+        boolean expectedResult = false;
         boolean actualResult;
 
         //Act
-        testAlien.setDead(true);
+        testAlien.setDead(false);
         actualResult = testAlien.isDead();
 
         //Assert
@@ -64,7 +64,7 @@ public class AlienTest {
     //public void testSetDead();
     public void setDead_HealthEqualsZero_True() {
         //Arrange
-        Alien testAlien = new Alien(true, 10);
+        Alien testAlien = new Alien(false, 0);
 
         boolean expectedResult = true;
         boolean actualResult;
