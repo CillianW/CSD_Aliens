@@ -1,6 +1,4 @@
 package com.company;
-import com.company.Alien;
-import com.company.Raygun;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -115,7 +113,7 @@ public class TestRaygun {
 
         //when
         myRaygun.recharge();
-        actualCharge = myRaygun.getcChrg();
+        actualCharge = myRaygun.getCurrentCharge();
 
         //then
         Assert.assertEquals(actualCharge, expectedCharge);
