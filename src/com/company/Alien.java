@@ -88,8 +88,6 @@ public class Alien {
         if (alienHealth > 0) {
             this.alienHealth--;
         }
-
-        //if statements implemented here instead of in isDead()
         if (alienHealth ==0){
             this.setDead(true);
         }
