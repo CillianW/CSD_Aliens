@@ -3,9 +3,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * testFireAtHit() The gun should only fire if it is charged.
- * Firing the gun will reduce the charge by 1.
- * If the bug isDodging bug.miss() should be called, otherwise bug.hit */
+ * Test suite for the Raygun class .
+ * Author: Rosangela Kelwattes
+ * Date: 25/01/2021
+ */
 public class TestRaygun {
 
     @Test

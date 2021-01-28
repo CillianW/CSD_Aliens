@@ -56,13 +56,6 @@ public class Alien {
      * @return true If the health attribute is 0.
      */
     public boolean isDead() {
-        //removed these if statements and implemented one if statement in hit()
-//        if (alienHealth < 0) {
-//            dead = true;
-//        }
-//        if (alienHealth > 0) {
-//            dead = false;
-//        }
         return dead;
     }
 
