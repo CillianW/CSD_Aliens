@@ -1,7 +1,6 @@
 package com.company;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 /**
  * Test suite for the Raygun class .
  * Author: Rosangela Kelwattes

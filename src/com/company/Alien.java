@@ -1,5 +1,4 @@
 package com.company;
-
 /**
  * Description: The class implements an Alien for a game.
  * The health of the alien object determines if the alien is alive and or dodging.
