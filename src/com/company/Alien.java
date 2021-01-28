@@ -56,12 +56,13 @@ public class Alien {
      * @return true If the health attribute is 0.
      */
     public boolean isDead() {
-        if (alienHealth == 0) {
-            dead = true;
-        }
-        if (alienHealth > 0) {
-            dead = false;
-        }
+        //removed these if statements and implemented one if statement in hit()
+//        if (alienHealth < 0) {
+//            dead = true;
+//        }
+//        if (alienHealth > 0) {
+//            dead = false;
+//        }
         return dead;
     }
 
@@ -83,9 +84,7 @@ public class Alien {
      * Set dodging to true if the alien is alive
      */
     public void dodge() {
-        if (!isDead()) {
-            dodging = true;
-        }
+        if (!isDead()) dodging = true;
     }
 
     /**
@@ -95,6 +94,11 @@ public class Alien {
     public void hit() {
         if (alienHealth > 0) {
             this.alienHealth--;
+        }
+
+        //if statements implemented here instead of in isDead()
+        if (alienHealth ==0){
+            this.setDead(true);
         }
     }
 
