@@ -17,13 +17,13 @@ package com.company;
 
 public class Raygun {
     //Data members
-    private int mChrg; //The maximum charge the Raygun can hold
-    private int cChrg; //The current level of charge the Raygun has
+    private int maxCharge; //The maximum charge the Raygun can hold
+    private int currentCharge; //The current level of charge the Raygun has
 
     //Class constructors
-    public Raygun(int mChrg, int cChrg) {
-        this.mChrg = mChrg;
-        this.cChrg = cChrg;
+    public Raygun(int maxCharge, int currentCharge) {
+        this.maxCharge = maxCharge;
+        this.currentCharge = currentCharge;
     }
 
     /* only fire if raygun has a charge
@@ -38,49 +38,45 @@ public class Raygun {
                 a.hit();
             }
             
-             this.cChrg--;
+             this.currentCharge--;
         }else{
-            this.cChrg = 0;
+            this.currentCharge = 0;
         }
     }
 
     /*increase charge by 1
     do not exceed max charge*/
     public void recharge() {
-        this.cChrg = (getcChrg() < getmChrg()) ? this.cChrg+1 : this.mChrg;
+        this.currentCharge = (getCurrentCharge() < getMaxCharge()) ? this.currentCharge +1 : this.maxCharge;
     }
 
     // return true if charge > 0
     public boolean isCharged() {
-        if(getcChrg() > 0){
-            return true;
-        }else{
-            return false;
-        }
+        if(currentCharge > 0) return true;
+
+        return false;
     }
 
     // return true if current charge = max charge
     public boolean isFullyCharged() {
-        if(cChrg == mChrg){
-            return true;
-        }else{
-            return false;
-        }
+        if(currentCharge == maxCharge) return true;
+
+        return false;
     }
 
     // return max charge
-    public int getmChrg() {
-        return mChrg;
+    public int getMaxCharge() {
+        return maxCharge;
     }
 
     //set mChrg
-    public void setmChrg(int mChrg) {
-        this.mChrg = mChrg;
+    public void setMaxCharge(int maxCharge) {
+        this.maxCharge = maxCharge;
     }
 
     // return current charge
-    public int getcChrg() {
-        return cChrg;
+    public int getCurrentCharge() {
+        return currentCharge;
     }
 
 }
